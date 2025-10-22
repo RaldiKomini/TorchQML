@@ -4,7 +4,7 @@ from functools import reduce
 
 def expand_gate(layer):
     #layer = layer[::-1]
-    full_matrix = reduce(lambda x, y: b.kron(x,y), (g.matrix for g in layer))
+    full_matrix = reduce(lambda x, y: torch.kron(x,y), (g.matrix for g in layer))
     full_name = " x ".join(g.name for g in layer)
     
     full_params = []

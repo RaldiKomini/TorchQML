@@ -1,18 +1,18 @@
 import unittest
 
-from qml_lib.utils import backend as b
+from qml_lib.config import torch, DTYPE, DEVICE
 from qml_lib.gates.gate import Gate
 
 
 
 class TestGate(unittest.TestCase):
     def test_gate_creation(self):
-        matrix = b.tensor([[0, 1], [1, 0]])
-        gate = Gate(matrix, name="X", params=[b.pi])
+        matrix = torch.tensor([[0, 1], [1, 0]])
+        gate = Gate(matrix, name="X", params=[torch.pi])
         
-        self.assertTrue(b.allclose(gate.matrix, matrix))  # test matrix is stored
+        self.assertTrue(torch.allclose(gate.matrix, matrix))  # test matrix is stored
         self.assertEqual(gate.name, "X")                 # test name is correct
-        self.assertEqual(gate.params, [b.pi]) 
+        self.assertEqual(gate.params, [torch.pi]) 
         
         
     def test_mul(self):
@@ -20,5 +20,7 @@ class TestGate(unittest.TestCase):
         y = Gate.Y
         res = x @ y
         excepted = x.matrix @ y.matrix
+        print(res)
+        print(excepted)
         
-        self.assertTrue(b.allclose(res.matrix, excepted))
+        self.assertTrue(torch.allclose(res.matrix, excepted))

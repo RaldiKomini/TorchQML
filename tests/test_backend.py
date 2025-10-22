@@ -24,7 +24,7 @@ def test_kron():
     b = be.tensor([[0, 1], [1, 0]], dtype=be.dtype_complex)
     c = be.kron(a, b)
     print("Result of kron:\n", c)
-    expected_shape = (a.shape[0]*b.shape[0], a.shape[1]*b.shape[1])
+    expected_shape = (a.shape[0]*torch.shape[0], a.shape[1]*torch.shape[1])
     assert c.shape == expected_shape, "Shape mismatch"
     print("Kron test passed!\n")
 

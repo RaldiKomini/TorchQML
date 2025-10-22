@@ -22,10 +22,10 @@ c = Circuit(num_qubits = 1)
 #print(c)
 
 
-state = b.tensor([1.0, 0.0, 0.0, 0.0], dtype=b.cfloat)
+state = torch.tensor([1.0, 0.0, 0.0, 0.0], dtype=torch.cfloat)
 
-x = [b.tensor(0.3), b.tensor(0.7)]
-t = [b.tensor(1.0), b.tensor(0.2)]
+x = [torch.tensor(0.3), torch.tensor(0.7)]
+t = [torch.tensor(1.0), torch.tensor(0.2)]
 
 # Create wrappers that pull values from x and t
 # Qubit 0 will get Rotx(x[0]), Qubit 1 will get Roty(t[0])
@@ -49,7 +49,7 @@ out = circuit.apply_to(state, x=x, t=t)
 print("Final state:\n", out)
 
 # Optional: manually verify one layer
-#expected_manual b.tensor_product([Rotx(x[0]), Roty(t[0])])
+#expected_manual torch.tensor_product([Rotx(x[0]), Roty(t[0])])
 #manual_result = expected_manual(state)
 #print("\nManual result after first layer:\n", manual_result)
 

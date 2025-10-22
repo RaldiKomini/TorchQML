@@ -1,5 +1,5 @@
-from qml_lib.utils import backend as b
+from qml_lib.config import torch, DTYPE, DEVICE
 
 def density_matrix(mystate):
-    p1 = b.outer(mystate, b.conjugate(mystate))
+    p1 = torch.outer(mystate, torch.conjugate(mystate))
     return p1
