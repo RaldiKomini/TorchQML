@@ -25,7 +25,7 @@ class Circuit:
         for i, g in enumerate(layer):
             if isinstance(g, Gate):
                 if g.matrix.shape != (2, 2):
-                    raise ValueError("Gate isnt 2x2")
+                    raise ValueError("Gate isnt 2x2 ", g.matrix.shape)
             elif isinstance(g, VGate):
                 pass
             else:
