@@ -6,3 +6,5 @@ tests/
 utils/
 gates/expand.py
 delete.py
+__pycache__/
+*.pyc
