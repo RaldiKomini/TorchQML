@@ -1,6 +1,6 @@
-from qml_lib.config import DEVICE, DTYPE
-from qml_lib.gates.gate import Gate
-from qml_lib.wrappers.gatewrapper import VGate
+from TorchQML.config import DEVICE, DTYPE
+from TorchQML.gates.gate import Gate
+from TorchQML.wrappers.gatewrapper import VGate
 import torch
 from functools import reduce
 
@@ -33,7 +33,7 @@ class Circuit:
             
         self.gate_layers.append(layer)
 
-    #responsible for CNOT etc
+    #responsible for CNOT and other multiqubit gates
     def add_full(self, g :object) -> None:
         self.gate_layers.append([g])
 
@@ -64,7 +64,7 @@ class Circuit:
     def apply_to(self, state : torch.Tensor | None = None, *, x = None, theta = None) -> torch.Tensor:
         current = self._zero_state() if state is None else state.to(dtype=DTYPE, device=DEVICE) #initialize the state to current one
         dim = 1 << self.num_qubits
-        if current.numel() != dim: #checks dimensions
+        if current.numel() != dim:
             raise TypeError("apply_to wrong dimensions")
         
         for layer in self.gate_layers: #applies every layer to the current state
@@ -80,3 +80,5 @@ class Circuit:
             names.append([getattr(g, "name", "Gate") for g in layer])
         return f"Circuit({self.num_qubits}q, layers={names})"
 
+
+__all__ = ["Circuit"]

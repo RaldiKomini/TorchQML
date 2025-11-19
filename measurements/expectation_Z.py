@@ -1,7 +1,7 @@
 import torch
 from functools import reduce
-from qml_lib.config import DEVICE, DTYPE
-from qml_lib.gates.gate import I, Z  # Gate objects with .matrix
+from TorchQML.config import DEVICE, DTYPE
+from TorchQML.gates.gate import I, Z
 
      
 import torch
@@ -29,3 +29,5 @@ def expectation_Z(state: torch.Tensor, index: int, n_qubits: int) -> torch.Tenso
     signs = (1 - 2 * bit).to(probs.dtype)
 
     return (probs * signs).sum()          # scalar tensor (good for autograd)
+
+__all__ = ["expectation_Z"]

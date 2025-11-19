@@ -1,5 +1,5 @@
 import torch
-from qml_lib.measurements.expectation_Z import expectation_Z
+from TorchQML.measurements.expectation_Z import expectation_Z
 
 class QVCClassifier(torch.nn.Module):
     def __init__(self, circuit, n_qubits: int, n_thetas: int):
@@ -10,7 +10,7 @@ class QVCClassifier(torch.nn.Module):
         self.head_w = torch.nn.Parameter(torch.tensor(1.0))
         self.head_b = torch.nn.Parameter(torch.tensor(0.0))
 
-    def forward(self, x):  # x: (B, 2)
+def forward(self, x):  # x: (B, 2)
         batch_size = x.shape[0]
         z_list = []
         for i in range(batch_size):
@@ -21,3 +21,4 @@ class QVCClassifier(torch.nn.Module):
         z = torch.stack(z_list)           # shape (B,)
         logits = self.head_w * z + self.head_b  # broadcasts → (B,)
         return logits
+    

@@ -1,6 +1,6 @@
 import torch
-from qml_lib.circuits.circuit import Circuit
-from qml_lib.measurements.expectation_Z import expectation_Z
+from TorchQML.circuits.circuit import Circuit
+from TorchQML.measurements.expectation_Z import expectation_Z
 
 
 def evaluate_Z(circ, theta, X, y, n_qubits)->float:

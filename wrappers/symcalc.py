@@ -1,5 +1,5 @@
 import torch
-from qml_lib.config import DEVICE, DTYPE
+from TorchQML.config import DEVICE, DTYPE
 class Sym:
     def __init__(self, op, *args):
         self.op = op

@@ -1,7 +1,7 @@
 import torch
-from qml_lib.gates.gate import Gate
-from qml_lib.wrappers.symcalc import Sym
-from qml_lib.config import DTYPE, DEVICE
+from TorchQML.gates.gate import Gate
+from TorchQML.wrappers.symcalc import Sym
+from TorchQML.config import DTYPE, DEVICE
 
 
 class VGate:
@@ -70,3 +70,6 @@ def rz(w):
     if isinstance(w, Sym):
         return VGate("rz", w)
     return _rzn(torch.as_tensor(w))
+
+
+__all__ = ["rx, ry, rz"]

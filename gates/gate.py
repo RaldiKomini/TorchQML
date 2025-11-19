@@ -1,9 +1,10 @@
 import math
 import torch
-from qml_lib.config import DTYPE, DEVICE
+from TorchQML.config import DTYPE, DEVICE
 
 
-class Gate:
+#A quantum gate: stores its matrix, name, and parameters (for parametric gates).
+class Gate: 
     def __init__(self, matrix: torch.Tensor, name: str = "Not specified", params=None):
         self.matrix = matrix.to(device=DEVICE, dtype=DTYPE)
         self.name = name
@@ -25,7 +26,7 @@ class Gate:
 
     def dagger(self) -> "Gate":
         # Hermitian conjugate
-        new_matrix = self.matrix.mH  # same as self.matrix.conj().transpose(-2, -1)
+        new_matrix = self.matrix.mH
         return Gate(new_matrix, f"{self.name}.dagger()", self.params)
 
     def __invert__(self) -> "Gate":
@@ -64,6 +65,5 @@ CNOT = Gate.CNOT
 
 __all__ = [
     "Gate",
-    "I", "X", "Y", "Z", "H", "CNOT",
-    "rx", "ry", "rz",
+    "I", "X", "Y", "Z", "H", "CNOT"
 ]
