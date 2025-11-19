@@ -1,0 +1,8 @@
+data_gen/
+encoding/
+ops/
+satdata/
+tests/
+utils/
+gates/expand.py
+delete.py
