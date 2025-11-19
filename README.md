@@ -23,6 +23,21 @@ quantum states → gates → circuits → training.
 
 ---
 
+## 📌 Upcoming Features
+
+These features are already prepared and will be integrated soon:
+
+- Custom loss functions and classification metrics
+- Decision boundary visualization tools
+- Bloch sphere visualization for single-qubit states
+- Cleaner training utilities for QVC models
+- Additional example notebooks and demos
+
+More improvements will be added over time as the library grows.
+
+---
+
+
 ## 🚀 Quick Example
 
 ```python
