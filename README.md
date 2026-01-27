@@ -42,6 +42,7 @@ More improvements will be added over time as the library grows.
 
 ## Project Structure (Public API)
 
+```text
 TorchQML/
 ├── core/        # circuits, symbols, configuration
 ├── encoding/    # data encoding (e.g. amplitude encoding)
@@ -51,7 +52,6 @@ TorchQML/
 ├── training/    # trainer, losses, metrics
 ├── datasets/    # EuroSAT utilities
 ├── plots/       # visualization tools
-
 ---
 
 ## Planned / Ongoing Work
