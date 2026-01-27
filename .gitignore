@@ -1,0 +1,7 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Experimental / internal
+states/
+plots/decision_boundary.py
