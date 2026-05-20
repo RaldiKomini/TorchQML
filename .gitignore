@@ -1,7 +1,21 @@
 # Python cache
 __pycache__/
 *.pyc
+.pytest_cache/
 
-# Experimental / internal
-states/
-plots/decision_boundary.py
+# Local experiment outputs and generated artifacts
+artifacts/
+outputs/
+wandb/
+**/results/
+runs/
+checkpoints/
+experiments/plots/
+**/runs/
+**/checkpoints/
+*.ckpt
+*.log
+*.npy
+*.npz
+*.pt
+*.pth

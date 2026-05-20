@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "torchqml"
+version = "0.1.0"
+description = "Readable PyTorch tools for quantum machine learning experiments."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "torch",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+experiments = [
+    "gymnasium",
+    "kagglehub",
+    "matplotlib",
+    "pandas",
+    "plotly",
+    "scikit-learn",
+    "stable-baselines3",
+    "sb3-contrib",
+    "torchvision",
+    "xgboost",
+]
+remote-sensing = [
+    "scikit-learn",
+    "torchvision",
+    "kagglehub",
+    "tifffile",
+]
+
+[tool.setuptools.packages.find]
+include = ["TorchQML*"]
